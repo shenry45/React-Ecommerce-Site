@@ -1,0 +1,22 @@
+#cart .cart-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 30px;
+    align-items: flex-start;
+}
+#cart .cart-shipping-cont {
+    position: sticky;
+    top: 15px;
+    padding: 15px 30px;
+    background: #f9f9f9;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+#cart .cart-shipping-cont button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px 30px;
+    background-color: #0088ff;
+    color: #ffffff;
+    border-radius: 5px;
+}

@@ -1,0 +1,31 @@
+.card-stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 50px;
+}
+.card-stack .card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    /* margin: 0px 50px 100px 0px; */
+    grid-gap: 20px;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    border: 2px solid #dddddd;
+    max-height: 300px;
+}
+.card-stack .card > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+.card-stack .card-placeholder{
+    padding: 50px;
+    background-color: #e9e9e9;
+    border-radius: 15px;
+}
+.card img {
+    height: auto;
+    max-width: 100%;
+    max-height: 240px;
+}

@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+span.logo {
+  width: 100px;
+}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  padding: 5% 15%;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+}
+
+#root nav {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+nav > * {
+  max-height: 41px;
+}
+
+nav a {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+nav a:hover {
+  box-shadow: 0 0 3px #cacaca;
+}
+nav img {
+  margin-right: 30px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #60b5ff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 5% 10%;
+  font-size: 2em;
   color: white;
+  background-image: url('./assets/warehouse.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#cart-icon {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  padding: 20px 15px;
+  border-radius: 50%;
+  background-color: #4e4e4e;
+  color: #ffffff;
+  font-weight: bold;
+  border: 1px solid black;
+  box-shadow: 0 2px 5px #bfbfbf;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#cart {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cart-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+
+.cart-card-button {
+  margin-right: 15px;
+}
+
+.cart-card-button button {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: #808080;
+  color: #000000;
+  border: 1px solid #adadad;
+}
+
+.cart-card-button button:hover {
+  background-color: #0088ff;
+  color: #ffffff;
+  border: 1px solid #61dafb;
+}
+
+.cart-card-info {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.cart-card-info p {
+  color: #a9a9a9;
+  margin: 0px;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax( 200px, 1fr));
+}
+
+footer .nav {
+  display: flex;
+  flex-flow: column;
 }
