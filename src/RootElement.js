@@ -46,7 +46,7 @@ class rootElement extends React.Component {
         <NavMenu />
         <Header />
         <Routes>
-            <Route path="/" element={<App content={<HomePage />} />}/>
+            <Route path="/" element={<App content={<HomePage {...this.state} />} />}/>
             <Route path="products" element={<App content={<ProductsPage {...this.state} />} />} />
             <Route path="about" element={<App content={<AboutPage />} />} />
             <Route path="cart" element={<App content={<CartPage {...this.state} />} />} />

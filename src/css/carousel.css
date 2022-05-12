@@ -1,0 +1,19 @@
+.carousel {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.carousel .card {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    width: 20%;
+    padding: 50px;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.carousel .carousel-img {
+    max-width: 150px;
+    max-height: 150px;
+}

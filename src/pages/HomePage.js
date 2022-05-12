@@ -1,10 +1,12 @@
 import React from 'react';
-import Features from '../components/Features';
 
-const HomePage = () => {
+import Features from '../components/Features.js';
+import ProductCarousel from '../components/ProductCarousel.js';
+
+const HomePage = (props) => {
     return (
         <section>
-            <p>Maybe products carousel slider goes here?</p>
+            <ProductCarousel result={props.result} />
             <Features />
         </section>
     )
