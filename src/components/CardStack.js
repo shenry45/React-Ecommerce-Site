@@ -5,8 +5,8 @@ import '../css/cardstack.css';
 const CardStack = (props) => {
     return <div className="card-stack">
         {
-            props.error !== null ?
-            <div>{props.error}</div> : <></>
+            /*props.error !== null ?
+            <div>{props.error}</div> : ''*/
         }
         {
             props.result && props.result.length > 0 ? 
