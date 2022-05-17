@@ -1,0 +1,9 @@
+form#filter {
+    margin-bottom: 25px;
+}
+form#filter label {
+    display: block;   
+}
+form#filter select {
+    padding: 10px 10px 10px 5px;
+}

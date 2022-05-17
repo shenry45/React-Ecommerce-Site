@@ -1,8 +1,10 @@
 import React from 'react';
 
+import '../css/filterdropdown.css';
+
 const FilterDropdown = (props) => {
     return (
-            <form>
+            <form id="filter">
                 <label htmlFor="filter">Filters</label>
                 <select name='filter' onChange={props.filterChange}>
                     <option>No filter</option>

@@ -11,7 +11,7 @@ const CardStack = (props) => {
         {
             props.result && props.result.length > 0 ? 
             props.result.map(card =>
-                <div key={card.id} className="card">
+                <div key={card.id} className={`card ${card.visibility ? card.visibility : ''}`}>
                     {card.image_url ? <img src={card.image_url} alt="logo" width="auto" height="100%"/> : <></>}
                     <div>
                         <h2>{card.product_name !== "" ? card.product_name : card["category_properties"]["ciqual_food_name:en"]}</h2>
