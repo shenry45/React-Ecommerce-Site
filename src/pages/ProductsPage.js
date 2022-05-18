@@ -11,6 +11,19 @@ class ProductsPage extends React.Component {
         };
 
         this.filterChange = this.filterChange.bind(this);
+        this.checkboxFilterChange = this.checkboxFilterChange.bind(this);
+    }
+
+    // direction (asc, desc) and object paramater
+    sortHelper(dir, param) {
+        // ***BROKEN FOR SINGLE OR MULTIPLE PARAMS GIVEN***
+        const params = param.split('.');
+
+        if (dir === "asc") {
+            return this.props.result.sort((a, b) => a[params[0]][params[1]] - b[params[0]][params[1]]);
+        }
+        
+        return this.props.result.sort((a, b) => b[params[0]][params[1]] - a[params[0]][params[1]]);
     }
 
     // sort on filter chosen
@@ -19,40 +32,61 @@ class ProductsPage extends React.Component {
 
         let sortedProducts = '';
 
-        if (e.target.value === "Most to Least Protein") {
-            sortedProducts = this.props.result.sort((a, b) => b.nutriments.proteins - a.nutriments.proteins);
+        switch (e.target.value) {
+            case "Most to Least Protein":
+                sortedProducts = this.sortHelper('desc', 'nutriments.proteins');
+                break;
 
-            this.setState({
-                result: sortedProducts
-            });
-        } else if (e.target.value === "Least to Most Sodium") {
-            sortedProducts = this.props.result.sort((a, b) => a.nutriments.sodium - b.nutriments.sodium);
+            case "Least to Most Sodium":
+                sortedProducts = this.sortHelper('asc', 'nutriments.sodium');
+                break;
 
-            this.setState({
-                result: sortedProducts
-            });
-        } else if (e.target.value === "Least to Most Sugar") {
-            sortedProducts = this.props.result.sort((a, b) => a.nutriments.sugars - b.nutriments.sugars);
+            case "Least to Most Sugar":
+                sortedProducts = this.sortHelper('asc', 'nutriments.sugars');
+                break;
 
-            this.setState({
-                result: sortedProducts
-            });
-        } else if (e.target.value === "Milk-Free") {
-            let alteredProducts = this.state.result.map(product => {
-                if (product.traces === "en:milk" || (Array.isArray(product.traces) && product.traces.indexOf('en:milk') > -1)) {
-                    product["visibility"] = "hidden";
-                }
-                return product;
-            });
-
-            this.setState({
-                result: alteredProducts
-            })
+            default:
+                break;
         }
+
+        this.setState({
+            result: sortedProducts
+        });
+    }
+
+    checkboxFilterChange(e) {
+        this.clearHiddenProducts();
+
+        let alteredProducts = this.props.result;
+
+        switch (e.target.name) {
+            case "milk-free":
+                alteredProducts = this.props.result.map(product => {
+                    // ***NEED TO CHANGE TO ALLERGENS***
+                    if (product.traces === "en:milk" || (Array.isArray(product.traces) && product.traces.indexOf('en:milk') > -1)) {
+                        product["visibility"] = "hidden";
+                    }
+                    return product;
+                });
+
+                this.setState({
+                    result: alteredProducts
+                });
+
+                break;
+
+            default:
+                break;
+        }
+        
+        this.setState({
+            result: alteredProducts
+        })
+        
     }
 
     clearHiddenProducts() {
-        this.state.result.forEach(product => {
+        this.props.result.forEach(product => {
             if (product.visibility) {
                 product.visibility = ""
             }
@@ -62,7 +96,7 @@ class ProductsPage extends React.Component {
     render() {
         return (
             <section className='container'>
-                <FilterDropdown filterChange={this.filterChange} />
+                <FilterDropdown filterChange={this.filterChange} checkboxFilterChange={this.checkboxFilterChange} />
                 <CardStack {...this.state} />
             </section>
         )

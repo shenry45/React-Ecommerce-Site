@@ -1,4 +1,6 @@
 form#filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-bottom: 25px;
 }
 form#filter label {
@@ -6,4 +8,13 @@ form#filter label {
 }
 form#filter select {
     padding: 10px 10px 10px 5px;
+}
+form#filter ul {
+    list-style: none;
+    display: flex;
+}
+form#filter ul li {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
 }
