@@ -18,17 +18,16 @@ const FilterDropdown = (props) => {
                 <ul>
                     <li>
                         <input type="checkbox" name="milk-free" onChange={props.checkboxFilterChange}></input>
-                        <label htmlFor="milk-free">Milf Free</label>
-                    </li>
-                    {/* <li>
-                        <input type="checkbox" name="milk-free" onChange={props.checkboxFilterChange}></input>
-                        <label htmlFor="milk-free">Milf Free</label>
+                        <label htmlFor="milk-free">Milk Free</label>
                     </li>
                     <li>
+                        <input type="checkbox" name="gluten-free" onChange={props.checkboxFilterChange}></input>
+                        <label htmlFor="gluten-free">Gluten Free</label>
+                    </li>
+                    {/* {/* <li>
                         <input type="checkbox" name="milk-free" onChange={props.checkboxFilterChange}></input>
                         <label htmlFor="milk-free">Milf Free</label>
                     </li> */}
-                    
                 </ul>
             </form>
         )

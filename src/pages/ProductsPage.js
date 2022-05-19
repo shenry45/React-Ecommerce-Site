@@ -14,18 +14,6 @@ class ProductsPage extends React.Component {
         this.checkboxFilterChange = this.checkboxFilterChange.bind(this);
     }
 
-    // direction (asc, desc) and object paramater
-    sortHelper(dir, param) {
-        // ***BROKEN FOR SINGLE OR MULTIPLE PARAMS GIVEN***
-        const params = param.split('.');
-
-        if (dir === "asc") {
-            return this.props.result.sort((a, b) => a[params[0]][params[1]] - b[params[0]][params[1]]);
-        }
-        
-        return this.props.result.sort((a, b) => b[params[0]][params[1]] - a[params[0]][params[1]]);
-    }
-
     // sort on filter chosen
     filterChange(e) {
         this.clearHiddenProducts();
@@ -55,19 +43,27 @@ class ProductsPage extends React.Component {
     }
 
     checkboxFilterChange(e) {
+        /* SINGLE FILTER OK, MULTIPLE CHECKBOX FILTERING BROKEN */
         this.clearHiddenProducts();
 
-        let alteredProducts = this.props.result;
+        if (!e.target.checked) {
+            return;
+        }
+
+        let alteredProducts = this.state.result;
 
         switch (e.target.name) {
             case "milk-free":
-                alteredProducts = this.props.result.map(product => {
-                    // ***NEED TO CHANGE TO ALLERGENS***
-                    if (product.traces === "en:milk" || (Array.isArray(product.traces) && product.traces.indexOf('en:milk') > -1)) {
-                        product["visibility"] = "hidden";
-                    }
-                    return product;
+                alteredProducts = this.state.result.map(product => ifAllergenFound(product, "milk"));
+
+                this.setState({
+                    result: alteredProducts
                 });
+
+                break;
+
+            case "gluten-free":
+                alteredProducts = this.state.result.map(product => ifAllergenFound(product, "gluten"));
 
                 this.setState({
                     result: alteredProducts
@@ -86,11 +82,27 @@ class ProductsPage extends React.Component {
     }
 
     clearHiddenProducts() {
-        this.props.result.forEach(product => {
-            if (product.visibility) {
-                product.visibility = ""
+        let alteredProducts = this.state.result.map(product => {
+            if (product.hasOwnProperty('visibility')) {
+                delete product["visibility"];
             }
+            return product;
         });
+
+        this.setState({
+            result: alteredProducts
+        });
+    }
+
+    sortHelper(dir, param) {
+        // ***BROKEN FOR SINGLE OR 3+ PARAMS FROM OBJECT***
+        const params = param.split('.');
+    
+        if (dir === "asc") {
+            return this.props.result.sort((a, b) => a[params[0]][params[1]] - b[params[0]][params[1]]);
+        }
+        
+        return this.props.result.sort((a, b) => b[params[0]][params[1]] - a[params[0]][params[1]]);
     }
 
     render() {
@@ -102,5 +114,18 @@ class ProductsPage extends React.Component {
         )
     }
 };
+
+const ifAllergenFound = (product, ingred) => {
+    let allergenArr = product["allergens"].split(',');
+
+    for (let x in allergenArr) {
+        if (allergenArr[x] === `en:${ingred}`) {
+            product["visibility"] = "hidden";
+        }
+    }
+
+    return product;
+}
+
 
 export default ProductsPage;
