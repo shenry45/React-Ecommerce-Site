@@ -12,7 +12,6 @@ const FilterDropdown = (props) => {
                         <option>Most to Least Protein</option>
                         <option>Least to Most Sodium</option>
                         <option>Least to Most Sugar</option>
-                        <option>Milk-Free</option>
                     </select>
                 </div>
                 <ul>
