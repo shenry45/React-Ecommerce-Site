@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CartCard from '../components/CartCard.js';
+import CartShipping from '../components/CartShipping.js';
 
 import '../css/cart.css';
 
@@ -43,18 +44,7 @@ class CartPage extends React.Component {
                         })
                 }
                 </div>
-                <div className='cart-shipping-cont'>
-                    <h3>Shipping Rates</h3>
-                    <form>
-                        <input type="radio" id='fedex' name='carrier' value='fedex' />
-                        <label htmlFor="fedex">$25.00 - FedEx Ground</label><br />
-                        <input type="radio" id='usps' name='carrier' value='usps' />
-                        <label htmlFor="usps">$40.00 - USPS Priority Mail</label><br />
-                        <input type="radio" id='ups' name='carrier' value='ups' />
-                        <label htmlFor="ups">$107.00 - UPS Next Day Air</label><br />
-                        <button>Checkout</button>
-                    </form>
-                </div>
+                <CartShipping />
             </div>
         </section>
     }

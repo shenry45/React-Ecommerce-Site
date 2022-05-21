@@ -20,3 +20,14 @@
     color: #ffffff;
     border-radius: 5px;
 }
+#cart .cart-ship-post-code div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#cart .cart-ship-post-code input {
+    padding: 10px 15px;
+}
+#cart button.checkout {
+    background-color: #00c900;
+}
