@@ -1,0 +1,27 @@
+#checkout form{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+#checkout .billing {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+#checkout h1 {
+    text-align: center;
+}
+#checkout h2 {
+    margin-bottom: 0px;
+}
+#checkout .billing > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-gap: 20px;
+}
+#checkout .stacked > * {
+    display: block;
+}
+#checkout input {
+    margin: 0;
+    width: 100%;
+}

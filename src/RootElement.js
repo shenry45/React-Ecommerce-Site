@@ -10,6 +10,7 @@ import ProductsPage from './pages/ProductsPage.js';
 import AboutPage from './pages/AboutPage.js';
 import HomePage from './pages/HomePage.js';
 import CartPage from './pages/CartPage.js';
+import CheckoutPage from './pages/CheckoutPage.js';
 
 class rootElement extends React.Component { 
   constructor(props) {
@@ -50,6 +51,7 @@ class rootElement extends React.Component {
             <Route path="products" element={<App content={<ProductsPage {...this.state} />} />} />
             <Route path="about" element={<App content={<AboutPage />} />} />
             <Route path="cart" element={<App content={<CartPage {...this.state} />} />} />
+            <Route path="checkout" element={<App content={<CheckoutPage {...this.state} />} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
