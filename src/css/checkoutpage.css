@@ -2,8 +2,10 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
     grid-gap: 30px;
+    align-items: start;
+    margin-bottom: 30px;
 }
-#checkout .billing {
+#checkout .checkout-col {
     display: grid;
     grid-template-rows: 1fr;
 }
@@ -13,7 +15,7 @@
 #checkout h2 {
     margin-bottom: 0px;
 }
-#checkout .billing > div {
+#checkout .checkout-col > div {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     grid-gap: 20px;
@@ -21,7 +23,43 @@
 #checkout .stacked > * {
     display: block;
 }
-#checkout input {
+#checkout input[type="text"], #checkout input[type="email"], #checkout input[type="tel"] {
     margin: 0;
     width: 100%;
+}
+#checkout input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+#checkout table {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    border-spacing: 0;
+}
+#checkout table th, #checkout table td {
+    padding: 10px;
+    text-align: center;
+}
+#checkout table th {
+    background-color: #ffffff;
+}
+#checkout table tbody tr:nth-child(odd) {
+    background-color: #ededed;
+}
+#checkout tfoot td {
+    text-align: right;
+}
+#checkout tfoot tr td:last-child {
+    text-align: center;
+}
+#checkout .terms {
+    margin: 15px 0px;
+}
+#checkout button {
+    padding: 15px 30px;
+    background-color: #0088ff;
+    color: #ffffff;
+    border-radius: 5px;
+    float: right;
 }
