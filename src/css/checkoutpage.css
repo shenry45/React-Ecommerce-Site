@@ -31,6 +31,9 @@
     width: auto;
     margin-right: 10px;
 }
+#checkout .checkout-col .shipping-da {
+    display: block;
+}
 #checkout table {
     width: 100%;
     border: 1px solid black;
