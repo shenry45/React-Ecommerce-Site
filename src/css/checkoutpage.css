@@ -1,4 +1,4 @@
-#checkout form{
+#checkout form {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
     grid-gap: 30px;
@@ -15,15 +15,20 @@
 #checkout h2 {
     margin-bottom: 0px;
 }
-#checkout .checkout-col > div {
+#checkout .checkout-col >div, #checkout .checkout-col div.shipping-cont > div {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     grid-gap: 20px;
 }
-#checkout .stacked > * {
+#checkout div.stacked, #checkout .stacked > * {
     display: block;
 }
-#checkout input[type="text"], #checkout input[type="email"], #checkout input[type="tel"] {
+#checkout .checkout-col div.shipping-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+}
+#checkout input[type="text"], #checkout input[type="email"], #checkout input[type="tel"], #checkout textarea {
     margin: 0;
     width: 100%;
 }
@@ -31,7 +36,7 @@
     width: auto;
     margin-right: 10px;
 }
-#checkout .checkout-col .shipping-da {
+#checkout .checkout-col .shipping-da, #checkout div.notes-cont {
     display: block;
 }
 #checkout table {
@@ -58,6 +63,7 @@
 }
 #checkout .terms {
     margin: 15px 0px;
+    text-align: right;
 }
 #checkout button {
     padding: 15px 30px;
